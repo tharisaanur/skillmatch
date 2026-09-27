@@ -1,0 +1,387 @@
+/* SkillMatch auth canvas: asymmetric split-screen */
+:root {
+    --auth-ink: #f7fbfc;
+    --auth-muted: rgba(232, 244, 247, .72);
+    --auth-cyan: #b0edf9;
+    --auth-navy: #062f45;
+    --auth-panel: rgba(5, 28, 46, .76);
+    --auth-field: rgba(121, 143, 160, .28);
+    --auth-radius: 18px;
+}
+
+html,
+body {
+    min-width: 320px;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body { overflow-x: hidden; }
+
+.login {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(440px, 48%) 1fr;
+    align-items: center;
+    min-height: 100dvh;
+    overflow: hidden;
+    isolation: isolate;
+    color: var(--auth-ink);
+    background: var(--auth-navy);
+    font-family: var(--font-roboto, Inter, ui-sans-serif, system-ui, sans-serif);
+}
+
+.bg-login-icon {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.login::after {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    content: "";
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(3, 24, 39, .62) 0%, rgba(3, 24, 39, .22) 55%, rgba(3, 24, 39, .04) 100%);
+}
+
+.logo-icon {
+    position: absolute;
+    top: 30px;
+    left: clamp(24px, 5vw, 64px);
+    z-index: 3;
+    width: clamp(140px, 11vw, 180px);
+    height: auto;
+    object-fit: contain;
+}
+
+.login-child {
+    grid-column: 1;
+    grid-row: 1;
+    width: min(100% - 64px, 500px);
+    height: auto;
+    min-height: fit-content;
+    padding-bottom: 40px;
+    margin: clamp(84px, 11vh, 126px) 0 clamp(40px, 7vh, 74px) clamp(32px, 5vw, 64px);
+    border: 1px solid rgba(176, 237, 249, .2);
+    border-radius: 36px;
+    background: var(--auth-panel);
+    box-shadow: 0 22px 70px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255, 255, 255, .1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* FIX CARD & POSITIONING FOR LOGIN */
+.login-child {
+    min-height: 560px !important; /* Memberikan tinggi yang cukup untuk card */
+}
+
+/* MENATA DAFTAR SEKARANG DI BAWAH TOMBOL */
+.register-bottom-wrapper {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--auth-ink);
+}
+
+.daftar-sekarang-link {
+    color: var(--auth-cyan);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daftar-sekarang-link:hover {
+    text-decoration: underline;
+}
+
+/* SEMBUNYIKAN KELUARNYA TEKS LAMA DI DILUAR FORM */
+body > .belum-punya-akun,
+body > .daftar-sekarang {
+    display: none !important;
+}
+
+.masuk-ke-skillmatch-container {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2;
+    width: min(calc(100% - 128px), 405px);
+    margin: clamp(145px, 12vh, 185px) 0 0 clamp(64px, 8vw, 104px);
+    align-self: start;
+    font-size: clamp(28px, 2.5vw, 38px);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.masuk-ke-skillmatch-container2 { display: block; }
+.span { color: var(--auth-ink); }
+.match { color: var(--auth-cyan); }
+
+.login form {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2;
+    width: min(calc(100% - 128px), 405px);
+    margin: 92px 0 0 clamp(64px, 8vw, 104px);
+    align-self: start;
+    padding-top: clamp(100px, 14vh, 130px);
+}
+
+.form-group { margin-bottom: 12px; }
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--auth-ink);
+    font-size: 17px;
+    line-height: 1.25;
+}
+
+.input-wrapper { position: relative; }
+.field-icon {
+    position: absolute;
+    top: 50%;
+    left: 17px;
+    z-index: 1;
+    color: var(--auth-ink);
+    transform: translateY(-50%);
+}
+
+.login input {
+    width: 100%;
+    min-height: 60px;
+    padding: 0 18px 0 55px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: var(--auth-radius);
+    outline: 0;
+    background: var(--auth-field);
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, .08), 0 5px 14px rgba(0, 0, 0, .1);
+    color: var(--auth-ink);
+    font: inherit;
+    font-size: 16px;
+    transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.login input:-webkit-autofill,
+.login input:-webkit-autofill:hover, 
+.login input:-webkit-autofill:focus,
+.login input:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--auth-ink);
+    -webkit-box-shadow: 0 0 0px 1000px #0b2d42 inset; 
+    transition: background-color 5000s ease-in-out 0s;
+}
+.login input::placeholder { color: var(--auth-muted); }
+.login input:focus {
+    border-color: var(--auth-cyan);
+    background: rgba(121, 143, 160, .4);
+    box-shadow: 0 0 0 3px rgba(176, 237, 249, .18);
+}
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 17px;
+    color: var(--auth-ink);
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.lupa-kata-sandi {
+    display: inline-block;
+    margin-top: 2px;
+    color: var(--auth-muted);
+    font-size: 16px;
+}
+
+.login form .login-child2,
+.login form .rectangle-div {
+    position: static;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 60px;
+    border: 0;
+    border-radius: var(--auth-radius);
+    text-decoration: none;
+    font: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .2s ease, filter .2s ease;
+}
+.login form .login-child2 {
+    background: #004b6b;
+    color: var(--auth-ink);
+}
+.login form .rectangle-div {
+    background: var(--auth-cyan);
+    color: #10283a;
+}
+.login form .login-child2:hover,
+.login form .rectangle-div:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.login form .login-child2:active,
+.login form .rectangle-div:active { transform: translateY(1px); }
+
+.login form:has(.login-child2) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 10px;
+}
+.login form:has(.login-child2) > .form-group,
+.login form:has(.login-child2) > .lupa-kata-sandi,
+.login form:has(.login-child2) > .form-errors { grid-column: 1 / -1; }
+.login form:has(.login-child2) > .lupa-kata-sandi { margin-bottom: 6px; }
+.kembali,
+.masuk { position: static; display: block; }
+
+.belum-punya-akun {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2;
+    align-self: start;
+    width: 150px;
+    margin-top: calc(100% + 180px);
+    font-size: 16px;
+    line-height: 1.25;
+}
+.daftar-sekarang {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2;
+    align-self: start; 
+    margin-top: calc(100% + 180px);
+    margin-left: calc(clamp(64px, 8vw, 104px) + 160px);
+    color: var(--auth-cyan);
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.form-errors {
+    margin-bottom: 4px;
+    color: #ffd4d4;
+    font-size: 13px;
+}
+.form-errors p { margin: 3px 0; }
+
+.register-page .login-child { min-height: 680px; }
+.register-page .login form { padding-top: 130px; }
+.register-page .register-password-group,
+.register-page .register-confirm-group { display: block; }
+.register-page .belum-punya-akun,
+.register-page .daftar-sekarang { display: none; }
+
+@media (prefers-reduced-transparency: reduce) {
+    .login-child { background: #092b42; backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+
+@media (max-width: 840px) {
+    .login { grid-template-columns: minmax(390px, 58%) 1fr; }
+    .login-child { width: calc(100% - 40px); margin-left: 24px; }
+    .masuk-ke-skillmatch-container,
+    .login form { width: calc(100% - 80px); margin-left: 40px; }
+    .logo-icon { left: 28px; width: 150px; }
+}
+
+@media (max-width: 640px) {
+    .login {
+        display: block;
+        min-height: 100dvh;
+        overflow-y: auto;
+        padding: 104px 16px 34px;
+    }
+    .bg-login-icon { object-position: 63% center; }
+    .logo-icon { top: 20px; left: 20px; width: 130px; }
+    .login-child {
+        position: absolute;
+        inset: 96px 16px 24px;
+        width: auto;
+        min-height: 0;
+        margin: 0;
+        border-radius: 28px;
+    }
+    .masuk-ke-skillmatch-container,
+    .login form {
+        position: relative;
+        width: 100%;
+        margin: 0;
+    }
+    .masuk-ke-skillmatch-container {
+        z-index: 2;
+        font-size: 30px;
+    }
+    .login form {
+        padding-top: 30px;
+    }
+    .login form:has(.login-child2) { gap: 12px 8px; }
+    .belum-punya-akun,
+    .daftar-sekarang { display: none; }
+    .register-page .login-child { min-height: 700px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .login form .login-child2,
+    .login form .rectangle-div,
+    .login input { transition: none; }
+}
+
+/* =========================================
+   TOGGLE PASSWORD
+========================================= */
+
+.password-wrapper input {
+    padding-right: 55px;
+}
+
+.toggle-password {
+    position: absolute;
+
+    top: 50%;
+    right: 17px;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    z-index: 5;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.toggle-password:hover {
+    color: #B0EDF9;
+}
+
+.toggle-password:focus {
+    outline: none;
+}
+
+.toggle-password i {
+    pointer-events: none;
+}

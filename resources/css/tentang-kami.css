@@ -1,0 +1,131 @@
+/* MEMBERI JARAK AGAR TIDAK MERTINDIH/TERTUTUP NAVBAR HERO */
+.tentang-kami-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 42px 40px 56px;
+}
+
+/* LAYOUT CONTAINER 2 KOLOM */
+.tentang-kami-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* CARD ACCORDION FAQ (KIRI) */
+.tentang-kami-page .faq-box {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 10px 24px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.tentang-kami-page .faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 16px 0;
+}
+
+.tentang-kami-page .faq-item:last-child {
+    border-bottom: none;
+}
+
+.tentang-kami-page summary::-webkit-details-marker,
+.tentang-kami-page summary::marker {
+    display: none !important;
+}
+
+.tentang-kami-page .faq-title {
+    width: 100%;
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+
+/* ICON CHEVRON */
+.tentang-kami-page .chevron-icon {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 16px;
+}
+
+.tentang-kami-page details[open] .chevron-icon {
+    transform: rotate(-135deg);
+}
+
+.tentang-kami-page .faq-desc {
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* DESKRIPSI (KANAN) */
+.tentang-kami-page .about-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tentang-kami-page .about-title {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.tentang-kami-page .about-title .match-text {
+    color: #8ed3e5;
+}
+
+.tentang-kami-page .about-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 26px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.tentang-kami-page .about-card p {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.tentang-kami-page .about-card strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.tentang-kami-page .copyright-footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 900px) {
+    .tentang-kami-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+}

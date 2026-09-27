@@ -1,0 +1,465 @@
+:root {
+    --navy: #04344C;
+    --navy-dark: #06354b;
+    --navy-soft: #0a4460;
+    --cyan: #B0EDF9;
+    --white: #ffffff;
+    --border: rgba(255, 255, 255, 0.75);
+    --muted: rgba(255, 255, 255, 0.58);
+    --card-bg-1: rgba(8, 66, 93, 0.58);
+    --card-bg-2: rgba(106, 168, 196, 0.18);
+    --box-bg: rgba(2, 55, 80, 0.88);
+    --green: #8BC34A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: linear-gradient(110deg, #031d2b 0%, #0a4760 55%, #176b83 100%);
+    color: var(--white);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+.profile-page {
+    min-height: 100vh;
+    background: linear-gradient(110deg, #031d2b 0%, #0a4760 55%, #176b83 100%);
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+.profile-navbar {
+    width: 100%;
+    background: #04344C;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.profile-navbar-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    height: 96px;
+    padding: 0 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.profile-brand img {
+    width: 220px;
+    height: auto;
+    display: block;
+}
+
+.profile-nav {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+    margin-left: auto;
+    margin-right: 28px;
+}
+
+.profile-nav a {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    transition: 0.2s ease;
+}
+
+.profile-nav a:hover {
+    color: var(--cyan);
+}
+
+.profile-user-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-user-top-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.5);
+}
+
+.profile-user-top-name {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+.profile-main {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 28px 34px 46px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 32px;
+}
+
+.profile-header-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.profile-header-avatar {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.45);
+}
+
+.profile-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.profile-header-text h1 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.profile-email {
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
+    font-weight: 500;
+}
+
+.edit-profile-btn {
+    min-width: 158px;
+    height: 52px;
+    padding: 0 20px;
+
+    border: 1.5px solid rgba(255,255,255,0.9);
+    border-radius: 12px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    font-size: 17px;
+    font-weight: 700;
+    color: white;
+    background: transparent;
+}
+
+.edit-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+
+/* =========================
+   GRID
+========================= */
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 26px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+.profile-card {
+    min-height: 480px;
+    padding: 22px 20px 22px;
+
+    border: 1.4px solid rgba(255,255,255,0.72);
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(7, 72, 102, 0.48) 0%,
+            rgba(110, 169, 194, 0.16) 100%
+        );
+
+    backdrop-filter: blur(4px);
+}
+
+.profile-card h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.card-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 26px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   INFO BOX
+========================= */
+.info-box,
+.status-box,
+.project-item {
+    background: rgba(2, 60, 87, 0.96);
+    border: 1.2px solid rgba(255,255,255,0.82);
+    border-radius: 12px;
+}
+
+.info-box {
+    padding: 14px 16px;
+    margin-bottom: 18px;
+}
+
+.info-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.54);
+    margin-bottom: 10px;
+}
+
+.info-box strong {
+    font-size: 16px;
+    font-weight: 800;
+    color: white;
+}
+
+
+/* =========================
+   SKILL TAGS
+========================= */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tags span {
+    height: 36px;
+    padding: 0 16px;
+    border: 1.2px solid rgba(176, 237, 249, 0.92);
+    border-radius: 12px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+    font-weight: 700;
+    color: #d6f7ff;
+
+    background: rgba(255,255,255,0.02);
+}
+
+
+/* =========================
+   STATUS
+========================= */
+.status-box {
+    padding: 12px 16px;
+    margin-bottom: 18px;
+}
+
+.status-active {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--green);
+}
+
+.status-inactive {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #ff3b3b;
+}
+
+.status-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-active .status-dot {
+    background: var(--green);
+}
+
+.status-inactive .status-dot {
+    background: #ff3b3b;
+}
+
+
+/* =========================
+   PROJECT
+========================= */
+.project-label {
+    margin-bottom: 12px;
+}
+
+.project-section {
+    margin-top: 6px;
+}
+
+.project-item {
+    padding: 12px 14px;
+    margin-bottom: 16px;
+}
+
+.project-item-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.project-item h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: white;
+}
+
+.project-badge {
+    min-width: 102px;
+    height: 30px;
+    padding: 0 14px;
+
+    border: 1px solid rgba(255,255,255,0.75);
+    border-radius: 8px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+    font-weight: 800;
+    color: white;
+}
+
+.project-item p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 600;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1100px) {
+    .profile-nav {
+        gap: 24px;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 860px) {
+    .profile-navbar-inner {
+        height: auto;
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+
+    .profile-nav {
+        width: 100%;
+        order: 3;
+        margin: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .profile-main {
+        padding: 24px 20px 40px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 560px) {
+    .profile-brand img {
+        width: 170px;
+    }
+
+    .profile-user-top-name {
+        font-size: 15px;
+    }
+
+    .profile-header-left {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-card {
+        padding: 18px 16px;
+        border-radius: 22px;
+    }
+
+    .project-item-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .status-inactive {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #ff3b3b;
+        font-weight: 700;
+    }
+
+    .status-inactive .status-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #ff3b3b;
+    }
+}

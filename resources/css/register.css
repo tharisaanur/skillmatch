@@ -1,0 +1,538 @@
+:root {
+    --navy: #04344C;
+    --cyan: #B0EDF9;
+    --white: #ffffff;
+    --panel: rgba(4, 27, 46, 0.82);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow-x: hidden;
+
+    background: var(--navy);
+}
+
+
+/* =========================================
+   REGISTER PAGE
+========================================= */
+
+.register-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding:
+        120px
+        0
+        40px
+        6%;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.register-background {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 0;
+}
+
+
+.register-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2, 21, 36, 0.28) 0%,
+            rgba(2, 21, 36, 0.10) 50%,
+            rgba(2, 21, 36, 0.02) 100%
+        );
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.register-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(560px, 46vw);
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.register-logo {
+    display: block;
+
+    width: fit-content;
+
+    margin-bottom: 16px;
+}
+
+.register-logo img {
+    width: 220px;
+    height: auto;
+
+    display: block;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.register-card {
+    width: 100%;
+
+    padding:
+        30px
+        40px
+        34px;
+
+    background: var(--panel);
+
+    border:
+        1px solid
+        rgba(176, 237, 249, 0.22);
+
+    border-radius: 34px;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    color: var(--white);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.22);
+}
+
+
+.register-card h1 {
+    text-align: center;
+
+    font-size: 30px;
+
+    margin-bottom: 28px;
+}
+
+
+.register-card h1 span {
+    color: var(--cyan);
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.form-errors {
+    margin: 0 0 18px;
+
+    padding: 12px 14px;
+
+    border:
+        1px solid
+        rgba(255, 150, 150, 0.35);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 96, 96, 0.12);
+
+    color: #ffd1d1;
+
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.form-errors p {
+    margin: 0;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 16px;
+
+    color: #ffffff;
+}
+
+
+.input-wrapper {
+    position: relative;
+}
+
+
+.input-wrapper input {
+    width: 100%;
+    height: 56px;
+
+    padding:
+        0
+        55px
+        0
+        52px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.18);
+
+    border-radius: 16px;
+
+    outline: none;
+
+    background:
+        rgba(100, 119, 138, 0.38) !important;
+
+    color: #ffffff !important;
+
+    caret-color: #ffffff;
+
+    font-size: 16px;
+}
+
+
+.input-wrapper input::placeholder {
+    color:
+        rgba(255, 255, 255, 0.55);
+}
+
+
+.input-wrapper input:focus {
+    border-color: var(--cyan);
+
+    background:
+        rgba(100, 119, 138, 0.38) !important;
+}
+
+
+/* =========================================
+   ICON KIRI
+========================================= */
+
+.input-icon {
+    position: absolute;
+
+    left: 18px;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    color: #ffffff;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+/* =========================================
+   TOGGLE PASSWORD - SAMA DENGAN LOGIN
+========================================= */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 55px !important;
+}
+
+.toggle-password {
+    position: absolute;
+
+    top: 50%;
+    right: 17px;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    z-index: 5;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.toggle-password:hover {
+    color: #B0EDF9;
+}
+
+.toggle-password:focus,
+.toggle-password:active {
+    outline: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+.toggle-password i {
+    pointer-events: none;
+}
+
+/* =========================================
+   CHROME AUTOFILL
+   SUPAYA INPUT TIDAK JADI PUTIH
+========================================= */
+
+.input-wrapper input:-webkit-autofill,
+.input-wrapper input:-webkit-autofill:hover,
+.input-wrapper input:-webkit-autofill:focus,
+.input-wrapper input:-webkit-autofill:active {
+
+    -webkit-text-fill-color:
+        #ffffff !important;
+
+    -webkit-box-shadow:
+        0 0 0 1000px
+        #30485d
+        inset !important;
+
+    box-shadow:
+        0 0 0 1000px
+        #30485d
+        inset !important;
+
+    caret-color:
+        #ffffff !important;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.18) !important;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.register-actions {
+    margin-top: 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 14px;
+}
+
+
+.btn-back,
+.btn-register {
+    height: 58px;
+
+    border: none;
+
+    border-radius: 17px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.btn-back {
+    background: #005274;
+
+    color: #ffffff;
+}
+
+
+.btn-register {
+    background: var(--cyan);
+
+    color: #082a3b;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.register-footer {
+    margin-top: 26px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 28px;
+
+    font-size: 16px;
+}
+
+
+.register-footer a {
+    color: var(--cyan);
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+
+    .register-page {
+        justify-content: center;
+
+        padding:
+            105px
+            22px
+            30px;
+    }
+
+
+    .register-content {
+        width: min(100%, 560px);
+    }
+
+
+    .register-background {
+        object-position: 62% center;
+    }
+
+}
+
+
+@media (max-width: 560px) {
+
+    .register-page {
+        padding:
+            85px
+            14px
+            24px;
+    }
+
+
+    .register-logo img {
+        width: 170px;
+    }
+
+
+    .register-card {
+        padding:
+            24px
+            20px;
+    }
+
+
+    .register-card h1 {
+        font-size: 24px;
+    }
+
+
+    .register-actions {
+        gap: 10px;
+    }
+
+
+    .register-footer {
+        flex-direction: column;
+
+        gap: 8px;
+
+        text-align: center;
+    }
+
+}
